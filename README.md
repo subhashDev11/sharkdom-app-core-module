@@ -1,0 +1,1 @@
+# sharkdom-app-core-module
