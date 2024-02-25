@@ -425,6 +425,7 @@ class AnimatedDrawerItem extends StatelessWidget {
                       color: selected
                           ? ColorConstant.selectedMenuColor
                           : Colors.white,
+                      size: 22.dm,
                     ),
                   ),
                   Text(
@@ -433,7 +434,7 @@ class AnimatedDrawerItem extends StatelessWidget {
                       color: selected
                           ? ColorConstant.selectedMenuColor
                           : Colors.white,
-                      fontSize: 18.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w400,
                       letterSpacing: 0.27,
                     ),

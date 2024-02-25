@@ -1,18 +1,18 @@
+import 'package:app_core_module/app_core_module.dart';
 import 'package:flutter/material.dart';
-import 'package:app_core_module/core/app_widgets/app_scaffold.dart';
-import 'package:app_core_module/core/app_widgets/primary_button.dart';
+import 'package:app_core_module/core/api_routes.dart';
 
-import 'empty_data_message_widget.dart';
 
 class ErrorScreen extends StatelessWidget {
-
   const ErrorScreen({
     super.key,
     required this.errorMsg,
     this.action,
     this.buttonTitle,
+    this.title,
   });
 
+  final String? title;
   final String errorMsg;
   final Function(BuildContext context)? action;
   final String? buttonTitle;
@@ -20,34 +20,60 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-        title: "Error",
-        showLeading: action==null,
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              EmptyDataMessageWidget(
-                message: errorMsg,
-              ),
-              if(action!=null && buttonTitle!=null)
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                  ),
-                  child: PrimaryButton(
+      title: title ?? "",
+      showLeading: action == null,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 20.w,
+          vertical: 20.h,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            EmptyDataMessageWidget(
+              message: errorMsg,
+            ),
+            if (action != null && buttonTitle != null)
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 20.h,
+                ),
+                child: Column(
+                  children: [
+                    if (errorMsg.contains("support"))
+                      Container(
+                        padding: EdgeInsets.only(
+                          bottom: 10.h,
+                        ),
+                        child: PrimaryButton(
+                          title: "Support",
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => WebScreen.newInstance(
+                                  url: WebUrl.helpURL,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    PrimaryButton(
                       title: buttonTitle ?? "Exit",
-                      onTap: (){
-                        if(action!=null){
+                      onTap: () {
+                        if (action != null) {
                           action!(context);
                         }
                       },
-                  ),
-                )
-            ],
-          ),
+                    ),
+                  ],
+                ),
+              )
+          ],
         ),
+      ),
     );
   }
 }

@@ -6,7 +6,7 @@ import 'package:app_core_module/core/utils/app_logger.dart';
 class AuthTokenService {
   String getStoreKey = "token_data";
 
-  Future<void> clearLastTimestamp() async {
+  Future<void> clearTokenState() async {
     Map<String, dynamic> updatedData = ({
       "updateTime": null,
       "token": null,

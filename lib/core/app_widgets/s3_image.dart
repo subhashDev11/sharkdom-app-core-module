@@ -6,6 +6,7 @@ import 'package:app_core_module/core/app_widgets/photo_view_screen.dart';
 import 'package:app_core_module/core/image_constants.dart';
 import 'package:app_core_module/core/services/navigator_service.dart';
 import 'package:app_core_module/core/services/s3_file_uploader_service.dart';
+
 import '../getit_locator.dart';
 
 class AwsImageWidget extends StatelessWidget {
@@ -143,6 +144,25 @@ class AWSCircleImage extends StatelessWidget {
             radius: radius,
             backgroundImage: const AssetImage(ImageConstants.lockedOrg),
           );
+          // return Container(
+          //   height: radius != null ? (radius! + radius!) : null,
+          //   width: radius != null ? (radius! + radius!) : null,
+          //   decoration: const BoxDecoration(
+          //     shape: BoxShape.circle,
+          //     color: ColorConstant.primaryColor,
+          //   ),
+          //   child: getOrgFirstLater() != null
+          //       ? Center(
+          //           child: Text(
+          //             getOrgFirstLater() ?? "",
+          //             style: GilroyFonts.gilroyExtraBoldStyle()?.copyWith(
+          //               color: Colors.white,
+          //               fontSize: 30.sp,
+          //             ),
+          //           ),
+          //         )
+          //       : const SizedBox(),
+          // );
         } else {
           return Container(
             height: radius != null ? (radius! + radius!) : null,

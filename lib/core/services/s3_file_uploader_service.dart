@@ -49,7 +49,6 @@ class MinioUploadService {
     final file = File(filePath);
     final stat = await file.stat();
     final isInternetAvailable = await InternetUtils.isConnected();
-    String extension = path.extension(filePath);
     String fileObjectName = "$bucketName/logos/$fileName.png";
     AppLogger.i("bucket object - $fileObjectName");
 

@@ -11,3 +11,7 @@ class APIRoutes {
   static const String organizationSearch = "organization/search";
   static const String organizationCollaboration = "organizationCollaboration";
 }
+
+class WebUrl{
+  static const String helpURL = "https://sharkdom.com/help";
+}
