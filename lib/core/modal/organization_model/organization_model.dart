@@ -40,16 +40,16 @@ class OrganizationModel extends Equatable {
   final String? contactNumber;
   final String? targetMarket;
   final String? funding;
-  final String? preferredPartnershipTypes;
+  final List<dynamic>? preferredPartnershipTypes;
   final String? partnershipRestrictions;
   final String? cin;
   final DateTime? lastActivityAtTimestamp;
   final String? verificationResponse;
   final String? source;
   final DateTime? incorporationDate;
+  final bool? openForPartnership;
   final List<PreferredSector>? preferredSectors;
   final List<Signatory>? signatories;
-  final String? s3LogoObject;
 
   const OrganizationModel({
     this.id,
@@ -57,7 +57,6 @@ class OrganizationModel extends Equatable {
     this.lastUpdatedTimestamp,
     this.services,
     this.socialMedias,
-    this.s3LogoObject,
     this.code,
     this.name,
     this.about,
@@ -92,6 +91,7 @@ class OrganizationModel extends Equatable {
     this.verificationResponse,
     this.source,
     this.incorporationDate,
+    this.openForPartnership,
     this.preferredSectors,
     this.signatories,
   });
@@ -140,7 +140,8 @@ class OrganizationModel extends Equatable {
       contactNumber: data['contactNumber'] as String?,
       targetMarket: data['targetMarket'] as String?,
       funding: data['funding'] as String?,
-      preferredPartnershipTypes: data['preferredPartnershipTypes'] as String?,
+      preferredPartnershipTypes:
+          data['preferredPartnershipTypes'] as List<dynamic>?,
       partnershipRestrictions: data['partnershipRestrictions'] as String?,
       cin: data['cin'] as String?,
       lastActivityAtTimestamp: data['lastActivityAtTimestamp'] == null
@@ -151,13 +152,13 @@ class OrganizationModel extends Equatable {
       incorporationDate: data['incorporationDate'] == null
           ? null
           : DateTime.parse(data['incorporationDate'] as String),
+      openForPartnership: data['openForPartnership'] as bool?,
       preferredSectors: (data['preferredSectors'] as List<dynamic>?)
           ?.map((e) => PreferredSector.fromMap(e as Map<String, dynamic>))
           .toList(),
       signatories: (data['signatories'] as List<dynamic>?)
           ?.map((e) => Signatory.fromMap(e as Map<String, dynamic>))
           .toList(),
-      s3LogoObject: data['s3LogoObject'],
     );
   }
 
@@ -201,9 +202,9 @@ class OrganizationModel extends Equatable {
         'verificationResponse': verificationResponse,
         'source': source,
         'incorporationDate': incorporationDate?.toIso8601String(),
+        'openForPartnership': openForPartnership,
         'preferredSectors': preferredSectors?.map((e) => e.toMap()).toList(),
         'signatories': signatories?.map((e) => e.toMap()).toList(),
-        's3LogoObject': s3LogoObject,
       };
 
   /// `dart:convert`
@@ -251,20 +252,19 @@ class OrganizationModel extends Equatable {
     String? contactNumber,
     String? targetMarket,
     String? funding,
-    String? preferredPartnershipTypes,
+    List<dynamic>? preferredPartnershipTypes,
     String? partnershipRestrictions,
     String? cin,
     DateTime? lastActivityAtTimestamp,
     String? verificationResponse,
     String? source,
     DateTime? incorporationDate,
+    bool? openForPartnership,
     List<PreferredSector>? preferredSectors,
     List<Signatory>? signatories,
-    String? s3LogoObject,
   }) {
     return OrganizationModel(
       id: id ?? this.id,
-      s3LogoObject: s3LogoObject ?? this.s3LogoObject,
       creationTimestamp: creationTimestamp ?? this.creationTimestamp,
       lastUpdatedTimestamp: lastUpdatedTimestamp ?? this.lastUpdatedTimestamp,
       services: services ?? this.services,
@@ -306,13 +306,10 @@ class OrganizationModel extends Equatable {
       verificationResponse: verificationResponse ?? this.verificationResponse,
       source: source ?? this.source,
       incorporationDate: incorporationDate ?? this.incorporationDate,
+      openForPartnership: openForPartnership ?? this.openForPartnership,
       preferredSectors: preferredSectors ?? this.preferredSectors,
       signatories: signatories ?? this.signatories,
     );
-  }
-
-  String getOrgFileLogoName() {
-    return "${name}_$id";
   }
 
   @override
@@ -357,9 +354,9 @@ class OrganizationModel extends Equatable {
       verificationResponse,
       source,
       incorporationDate,
+      openForPartnership,
       preferredSectors,
       signatories,
-      s3LogoObject,
     ];
   }
 }
