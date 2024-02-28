@@ -219,6 +219,10 @@ class OrganizationModel extends Equatable {
   /// Converts [OrganizationModel] to a JSON string.
   String toJson() => json.encode(toMap());
 
+   String getOrgFileLogoName() {
+    return "${name}_$id";
+  }
+
   OrganizationModel copyWith({
     int? id,
     DateTime? creationTimestamp,
