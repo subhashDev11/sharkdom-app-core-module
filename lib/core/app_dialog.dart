@@ -48,10 +48,10 @@ void showAppDialog({
                     color: ColorConstant.primaryColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Icon(
                       Icons.close,
-                      color: context.getBrightnessBG,
+                      color: Colors.white,
                       size: 25,
                     ),
                   ),
