@@ -32,7 +32,7 @@ class PrimaryButton extends StatelessWidget {
         title,
         textAlign: TextAlign.center,
         style: GoogleFonts.roboto(
-          color: context.getBrightnessBG,
+          color: Colors.white,
           fontSize: 16.sp,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.10,
