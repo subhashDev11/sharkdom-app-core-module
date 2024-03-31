@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:app_core_module/core/app_widgets/file_source_picker.dart';
@@ -9,7 +10,7 @@ class FileSourcePickerModal {
     Completer<ImageSource?> completer = Completer();
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: context.getBrightnessBG,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

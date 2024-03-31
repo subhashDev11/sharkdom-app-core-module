@@ -62,7 +62,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
             Text(
               'Congratulations',
               style: GilroyFonts.gilroyExtraBoldStyle(
-                color: Colors.white,
+                color: context.getBrightnessBG,
                 fontSize: 32.sp,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.80,
@@ -74,7 +74,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                 'You have successfully become a Sharkdomer now.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.montserrat(
-                  color: Colors.white,
+                  color: context.getBrightnessBG,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                 ),

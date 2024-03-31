@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
@@ -66,10 +67,10 @@ class _WebScreenState extends State<WebScreen> {
     return Consumer<WebViewStateProvider>(
       builder: (context, state, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: context.getBrightnessBG,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: context.getBrightnessBG,
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back_ios_new_outlined,

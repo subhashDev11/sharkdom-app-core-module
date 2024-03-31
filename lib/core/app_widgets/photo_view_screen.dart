@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:app_core_module/core/color_constant.dart';
@@ -19,14 +20,14 @@ class PhotoViewScreen extends StatelessWidget {
       imageProvider = NetworkImage(imageSRC);
     }
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: context.getBrightnessBG,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: ColorConstant.primaryColor,
         leading: IconButton(
-          icon: const Icon(
+          icon:  Icon(
             Icons.arrow_back_ios_new_outlined,
-            color: Colors.white,
+            color: context.getBrightnessBG,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:app_core_module/core/image_constants.dart';
@@ -110,8 +111,8 @@ class ImageComponent extends StatelessWidget {
                         child: Container(
                           width: 16,
                           height: 16,
-                          decoration: const BoxDecoration(
-                              color: Colors.white, shape: BoxShape.circle),
+                          decoration:  BoxDecoration(
+                              color: context.getBrightnessBG, shape: BoxShape.circle),
                           child: const Center(
                             child: Icon(Icons.done,
                                 color: Colors.orange, size: 12),

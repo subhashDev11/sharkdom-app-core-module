@@ -42,6 +42,6 @@
 //         .getTheme
 //         .textTheme
 //         .labelMedium!
-//         .copyWith(color: Colors.white, fontWeight: FontWeight.w500),
+//         .copyWith(color: context.getBrightnessBG, fontWeight: FontWeight.w500),
 //   );
 // }

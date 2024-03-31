@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:app_core_module/core/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +32,7 @@ class PrimaryButton extends StatelessWidget {
         title,
         textAlign: TextAlign.center,
         style: GoogleFonts.roboto(
-          color: Colors.white,
+          color: context.getBrightnessBG,
           fontSize: 16.sp,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.10,

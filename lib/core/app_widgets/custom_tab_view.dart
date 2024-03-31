@@ -44,7 +44,7 @@ class CustomTabView extends StatelessWidget {
           child: Text(
             title,
             style: GoogleFonts.roboto(
-              color: Colors.white,
+              color: context.getBrightnessBG,
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
             ),

@@ -178,9 +178,9 @@ class MultiSelectDropDownWidget extends StatelessWidget {
           },
           // autoValidateMode: AutovalidateMode.onUserInteraction,
           popupProps: PopupPropsMultiSelection.modalBottomSheet(
-              modalBottomSheetProps: const ModalBottomSheetProps(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
+              modalBottomSheetProps: ModalBottomSheetProps(
+                backgroundColor: context.getBrightnessBG,
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
@@ -247,7 +247,7 @@ class MultiSelectDropDownWidget extends StatelessWidget {
                   child: Checkbox(
                     value: b,
                     activeColor: ColorConstant.primaryColor,
-                    checkColor: Colors.white,
+                    checkColor: context.getBrightnessBG,
                     onChanged: (b) {},
                   ),
                 );
@@ -508,9 +508,9 @@ class AppMultiSelectDropDownWidget extends StatelessWidget {
           },
           // autoValidateMode: AutovalidateMode.onUserInteraction,
           popupProps: PopupPropsMultiSelection.modalBottomSheet(
-              modalBottomSheetProps: const ModalBottomSheetProps(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
+              modalBottomSheetProps:  ModalBottomSheetProps(
+                backgroundColor: context.getBrightnessBG,
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
@@ -577,7 +577,7 @@ class AppMultiSelectDropDownWidget extends StatelessWidget {
                   child: Checkbox(
                     value: b,
                     activeColor: ColorConstant.primaryColor,
-                    checkColor: Colors.white,
+                    checkColor: context.getBrightnessBG,
                     onChanged: (b) {},
                   ),
                 );

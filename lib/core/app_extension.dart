@@ -7,8 +7,14 @@ import 'package:app_core_module/core/common_data/error_model.dart';
 
 extension BuildCtxExtension on BuildContext {
   ThemeData get getTheme => Theme.of(this);
+
   bool get isDarkTheme => getTheme.brightness == Brightness.dark;
+
   Size get screenSize => MediaQuery.of(this).size;
+
+  Color get getBrightnessBG => Theme.of(this).brightness == Brightness.light
+      ? Colors.white
+      : Theme.of(this).cardColor;
 }
 
 extension IndexOfDropdownValue on List<ConfigurableDataModel> {
@@ -16,10 +22,8 @@ extension IndexOfDropdownValue on List<ConfigurableDataModel> {
     if (key == null || key.isEmpty) {
       return null;
     } else {
-      int index = indexWhere((element) =>
-          (element.key ?? '')
-              .toLowerCase() ==
-          key.toLowerCase());
+      int index = indexWhere(
+          (element) => (element.key ?? '').toLowerCase() == key.toLowerCase());
       // (element.key ?? '').toLowerCase().toString() ==
       // name.toLowerCase().toString());
       return index != -1 ? index : null;

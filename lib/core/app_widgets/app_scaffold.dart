@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:app_core_module/core/app_styles.dart';
@@ -37,7 +38,7 @@ class AppScaffold extends StatelessWidget {
       backgroundColor: bgColor ?? Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: context.getBrightnessBG,
         leading: (showLeading ?? false)
             ? IconButton(
                 icon: const Icon(

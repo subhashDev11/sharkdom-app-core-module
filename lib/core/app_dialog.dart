@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:app_core_module/core/color_constant.dart';
 
@@ -47,10 +48,10 @@ void showAppDialog({
                     color: ColorConstant.primaryColor,
                     shape: BoxShape.circle,
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Icon(
                       Icons.close,
-                      color: Colors.white,
+                      color: context.getBrightnessBG,
                       size: 25,
                     ),
                   ),

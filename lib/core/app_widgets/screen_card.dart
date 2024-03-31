@@ -24,7 +24,7 @@ class ScreenCard extends StatelessWidget {
           topLeft: Radius.circular(25),
           topRight: Radius.circular(25),
         )),
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.light ? Colors.white : null,
         child: (showIndicator ?? true)
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

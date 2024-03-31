@@ -245,7 +245,7 @@ class _AnimatedDrawerState extends State<AnimatedDrawer>
                               borderRadius: BorderRadius.all(
                                   Radius.circular(_shadowBorderRadius)),
                               child: Container(
-                                color: Colors.white.withAlpha(128),
+                                color: context.getBrightnessBG.withAlpha(128),
                               ),
                             ),
                           ),
@@ -259,7 +259,7 @@ class _AnimatedDrawerState extends State<AnimatedDrawer>
                         borderRadius:
                             (radiusAnimation.value ?? BorderRadius.zero),
                         child: Container(
-                          color: Colors.white,
+                          color: context.getBrightnessBG,
                           child: widget.controller?.page,
                         ),
                       ),
@@ -400,9 +400,9 @@ class AnimatedDrawerItem extends StatelessWidget {
         ),
         width: context.screenSize.width * 0.55,
         decoration: selected
-            ? const ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
+            ?  ShapeDecoration(
+                color: context.getBrightnessBG,
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(25),
                     bottomRight: Radius.circular(25),

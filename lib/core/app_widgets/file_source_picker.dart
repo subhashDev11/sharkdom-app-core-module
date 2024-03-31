@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,8 +62,8 @@ class PickerSourceItem extends StatelessWidget {
           Container(
             width: 50,
             height: 50,
-            decoration: const ShapeDecoration(
-              color: Colors.white,
+            decoration:  ShapeDecoration(
+              color: context.getBrightnessBG,
               shape: OvalBorder(side: BorderSide(width: 2)),
             ),
             child: Padding(

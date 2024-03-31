@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -134,7 +135,7 @@ class CustomButtonWidget extends StatelessWidget {
                   bottom: 10,
                 ),
             decoration: ShapeDecoration(
-              color: Colors.white,
+              color: context.getBrightnessBG,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(
                   width: 1,

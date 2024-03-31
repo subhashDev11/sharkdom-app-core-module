@@ -156,7 +156,7 @@ class AWSCircleImage extends StatelessWidget {
           //           child: Text(
           //             getOrgFirstLater() ?? "",
           //             style: GilroyFonts.gilroyExtraBoldStyle()?.copyWith(
-          //               color: Colors.white,
+          //               color: context.getBrightnessBG,
           //               fontSize: 30.sp,
           //             ),
           //           ),
