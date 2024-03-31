@@ -25,6 +25,7 @@ class AppInputField extends StatelessWidget {
   final int? maxLine;
   final int? minLine;
   final int? maxLength;
+  final int? minLength;
   final TextInputAction? textInputAction;
   final Color? borderColor;
 
@@ -48,6 +49,7 @@ class AppInputField extends StatelessWidget {
     this.borderColor,
     this.onEditingCompleted,
     this.onSaved,
+    this.minLength,
    // this.onSubmit,
   });
 
