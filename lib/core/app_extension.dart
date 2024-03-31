@@ -15,6 +15,14 @@ extension BuildCtxExtension on BuildContext {
   Color get getBrightnessBG => Theme.of(this).brightness == Brightness.light
       ? Colors.white
       : Theme.of(this).cardColor;
+
+  Color? get getSecondaryTextColor => Theme.of(this).brightness == Brightness.light
+      ? Colors.black
+      : null;
+
+  Color? get getDividerColor => Theme.of(this).brightness == Brightness.light
+      ? Colors.black87
+      : null;
 }
 
 extension IndexOfDropdownValue on List<ConfigurableDataModel> {
