@@ -213,7 +213,6 @@ class DropDownInput extends StatelessWidget {
                 .toList(),
             icon: const Icon(
               Icons.keyboard_arrow_down,
-              color: Colors.black87,
             ),
             alignment: Alignment.topLeft,
             decoration: InputDecoration(
@@ -241,7 +240,6 @@ class DropDownInput extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.28,
-              color: Colors.black,
             ),
             onChanged: onChanged,
             value: selected,
@@ -361,11 +359,9 @@ class _DateInputFieldState extends State<DateInputField> {
                 hintText: widget.hintText,
                 prefixIcon: Icon(
                   widget.prefixIcon ?? Icons.calendar_today,
-                  color: Colors.black87,
                 ),
                 suffixIcon: Icon(
                   widget.suffixIcon ?? Icons.keyboard_arrow_down,
-                  color: Colors.black87,
                 ),
                 contentPadding:
                      EdgeInsets.symmetric(vertical: 10.h, horizontal: 14.w),
@@ -388,7 +384,6 @@ class _DateInputFieldState extends State<DateInputField> {
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.28,
-                color: Colors.black,
               ),
               readOnly: true,
             ),
