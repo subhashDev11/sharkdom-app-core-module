@@ -89,7 +89,7 @@ class FormValidator {
     return regex.hasMatch(url);
   }
 
-  String? emptyAndLimitFieldValidator({
+  static String? emptyAndLimitFieldValidator({
     required int minChar,
     required int maxChar,
     String? value,
@@ -104,5 +104,5 @@ class FormValidator {
     }
     return null;
   }
-  
+
 }
