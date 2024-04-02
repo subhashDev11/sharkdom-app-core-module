@@ -89,4 +89,20 @@ class FormValidator {
     return regex.hasMatch(url);
   }
 
+  String? emptyAndLimitFieldValidator({
+    required int minChar,
+    required int maxChar,
+    String? value,
+    String? fieldName,
+  }) {
+    if (value == null || value.isEmpty) {
+      return '${fieldName ?? "This"} field is required.';
+    } else if (value.length < minChar) {
+      return '${fieldName ?? "This"} field must be at least $minChar characters long.';
+    } else if (value.length > maxChar) {
+      return '${fieldName ?? "This"} field cannot exceed $maxChar characters.';
+    }
+    return null;
+  }
+  
 }

@@ -141,6 +141,7 @@ class AppInputField extends StatelessWidget {
               onChanged: onChanged,
               onEditingComplete: onEditingCompleted,
               onSaved: onSaved,
+              maxLength: maxLength,
             ),
           ),
         ],
