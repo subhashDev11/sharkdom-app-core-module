@@ -35,7 +35,7 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       bottomSheet: bottomSheet,
-      backgroundColor: bgColor ?? Colors.white,
+      backgroundColor: bgColor ?? (context.isDarkTheme ? context.getTheme.scaffoldBackgroundColor  : Colors.white),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: context.getBrightnessBG,
@@ -43,13 +43,12 @@ class AppScaffold extends StatelessWidget {
             ? IconButton(
                 icon: const Icon(
                   Icons.arrow_back_ios_new_outlined,
-                  color: Colors.black,
                 ),
                 onPressed: () => Navigator.of(context).pop(),
               )
             : null,
         title: Text(title,style: GilroyFonts.gilroyMediumStyle(
-          color: Colors.black,
+          color: context.getSecondaryTextColor,
           fontSize: 15.sp,
         ),),
         centerTitle: false,
