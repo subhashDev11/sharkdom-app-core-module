@@ -1,4 +1,5 @@
 import 'package:app_core_module/core/app_extension.dart';
+import 'package:app_core_module/core/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:app_core_module/core/app_styles.dart';
@@ -35,7 +36,10 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       bottomSheet: bottomSheet,
-      backgroundColor: bgColor ?? (context.isDarkTheme ? context.getTheme.scaffoldBackgroundColor  : Colors.white),
+      backgroundColor: bgColor ??
+          (context.isDarkTheme
+              ? context.getTheme.scaffoldBackgroundColor
+              : Colors.white),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: context.getBrightnessBG,
@@ -44,14 +48,19 @@ class AppScaffold extends StatelessWidget {
                 icon: const Icon(
                   Icons.arrow_back_ios_new_outlined,
                 ),
+                color: ColorConstant.primaryColor,
                 onPressed: () => Navigator.of(context).pop(),
               )
             : null,
-        title: Text(title,style: GilroyFonts.gilroyMediumStyle(
-          color: context.getSecondaryTextColor,
-          fontSize: 15.sp,
-        ),),
+        title: Text(
+          title,
+          style: GilroyFonts.gilroyMediumStyle(
+            color: context.getSecondaryTextColor,
+            fontSize: 15.sp,
+          ),
+        ),
         centerTitle: false,
+        actions: actions,
       ),
       body: body,
       floatingActionButton: fab,
