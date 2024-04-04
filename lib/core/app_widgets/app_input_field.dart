@@ -11,6 +11,7 @@ class AppInputField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final String? labelText;
+  final String? initialText;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final bool? obscureText;
@@ -50,6 +51,7 @@ class AppInputField extends StatelessWidget {
     this.onEditingCompleted,
     this.onSaved,
     this.minLength,
+    this.initialText,
    // this.onSubmit,
   });
 
@@ -82,6 +84,7 @@ class AppInputField extends StatelessWidget {
             ),
             child: TextFormField(
               //onFieldSubmitted: onSubmit,
+              initialValue: controller==null ? initialText : null,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: validator,
               maxLines:
