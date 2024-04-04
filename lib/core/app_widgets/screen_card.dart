@@ -9,7 +9,7 @@ class ScreenCard extends StatelessWidget {
 
   final bool? showIndicator;
   final Widget child;
-  final int elevation;
+  final double elevation;
 
   @override
   Widget build(BuildContext context) {
