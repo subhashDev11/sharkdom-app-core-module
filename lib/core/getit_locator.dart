@@ -1,3 +1,4 @@
+import 'package:app_core_module/core/api_routes.dart';
 import 'package:get_it/get_it.dart';
 import 'package:app_core_module/core/services/app_pref_service.dart';
 import 'package:app_core_module/core/services/hyperverge_service.dart';
@@ -8,10 +9,17 @@ import 'package:app_core_module/core/services/s3_file_uploader_service.dart';
 import 'services/token_service.dart';
 
 final getIt = GetIt.instance;
+enum AppFlavor{
+  dev,
+  prod,
+}
 
 void getItLocator({
   required S3Config s3config,
+  required String baseURL,
+  required AppFlavor appFlavor,
 }) {
+  APIRoutes.setBaseURL(baseURL);
   getIt.registerSingleton<AppPrefService>(AppPrefService());
   getIt.registerSingleton<NavigatorService>(NavigatorService());
   getIt.registerSingleton<HyperVergeServices>(HyperVergeServices());
@@ -31,6 +39,7 @@ void getItLocator({
       envName: s3config.envName,
     ),
   );
+
 }
 
 /*

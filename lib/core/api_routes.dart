@@ -1,6 +1,7 @@
+import 'package:app_core_module/app_core_module.dart';
+
 class APIRoutes {
-  //static const String baseUrl = "https://dev.sharkdomapi.com/";
-  static const String baseUrl = "https://prod.sharkdomapi.com/";
+  static String baseUrl = "";
   static const String configurableData = "configuration/allByType";
   static const String organization = "organization";
   static const String allOrganizationsByUserId =
@@ -10,6 +11,11 @@ class APIRoutes {
   static const String orgUserMapping = "orgUserMapping";
   static const String organizationSearch = "organization/search";
   static const String organizationCollaboration = "organizationCollaboration";
+
+  static void setBaseURL(String url){
+    baseUrl = url;
+    AppLogger.i("Provided base URL - $baseUrl");
+  }
 }
 
 class WebUrl{
