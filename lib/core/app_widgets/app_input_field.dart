@@ -243,6 +243,7 @@ class DropDownInput extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.28,
+              color: context.isDarkTheme ? Colors.white : Colors.black,
             ),
             onChanged: onChanged,
             value: selected,
