@@ -27,7 +27,6 @@ void getItLocator({
   getIt.registerSingleton<NotificationService>(NotificationService());
   getIt<AppPrefService>().init();
   getIt<AuthTokenService>().getToken();
-  getIt<NotificationService>().init();
   getIt.registerSingleton<MinioUploadService>(
     MinioUploadService(
       endPoint: s3config.endPoint,
