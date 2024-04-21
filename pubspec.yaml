@@ -10,11 +10,19 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  #firebase
+  firebase_core: ^2.30.0
+  cloud_firestore: ^4.17.0
+  firebase_auth: ^4.19.2
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: ^6.0.0
+  firebase_messaging: ^14.7.15
+
   google_fonts: ^6.1.0
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.9
   provider: ^6.1.1
-  #floating_bottom_bar: ^0.0.2
   logger: ^2.0.2+1
   intl: ^0.19.0
   image_cropper: ^5.0.1
@@ -23,14 +31,10 @@ dependencies:
   shared_preferences: ^2.2.2
   get_it: ^7.6.4
   connectivity_plus: ^5.0.2
-  #oktoast: ^3.4.0
-  google_sign_in: ^6.2.1
-  firebase_auth: ^4.15.3
   flutter_easyloading: ^3.0.5
   equatable: ^2.0.5
   hive: ^2.2.3
   path_provider: ^2.1.1
-  cloud_firestore: ^4.13.6
   minio_flutter:
     git:
       url: https://github.com/subhashDev11/minio_flutter.git
@@ -40,9 +44,8 @@ dependencies:
   photo_view: ^0.14.0
   flutter_inappwebview: ^6.0.0
   hyperkyc_flutter: ^0.20.2
-  firebase_messaging: ^14.7.15
   path: ^1.8.3
-  firebase_core: ^2.25.4
+
 
 
 dev_dependencies:
