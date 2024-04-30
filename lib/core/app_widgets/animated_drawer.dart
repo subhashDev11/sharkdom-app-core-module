@@ -393,10 +393,10 @@ class AnimatedDrawerItem extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         padding: const EdgeInsets.symmetric(
-          vertical: 6.0,
+          vertical: 5.0,
         ),
         margin: const EdgeInsets.symmetric(
-          vertical: 6.0,
+          vertical: 3.0,
         ),
         width: context.screenSize.width * 0.55,
         decoration: selected
