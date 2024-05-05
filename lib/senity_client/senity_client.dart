@@ -93,7 +93,7 @@ class SanityClient {
   /// Throws a [SanityException] in case  request fails.
   Future<dynamic> fetch(String query, {Map<String, dynamic>? params}) async {
     final Uri uri = _buildUri(query, params: params);
-    Completer<Map<String,dynamic>?> completer = Completer<Map<String,dynamic>?>();
+    Completer<dynamic> completer = Completer<dynamic>();
     var fromCache = await HiveDBProvider.get(uri.toString());
     if(fromCache!=null && (fromCache is String && fromCache.isNotEmpty)){
       var decoded = _decodeReponse(fromCache);
