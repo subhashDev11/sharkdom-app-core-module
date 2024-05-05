@@ -105,7 +105,9 @@ class SanityClient {
     if(response.statusCode==200 && response.body.isNotEmpty){
       await HiveDBProvider.create(uri.toString(), response.body);
     }
-    completer.complete(_returnResponse(response));
+    if(!completer.isCompleted){
+      completer.complete(_returnResponse(response));
+    }
     return completer.future;
   }
 
