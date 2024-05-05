@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:app_core_module/core/hive_db_provider.dart';
 import 'package:http/http.dart' as http;
@@ -92,18 +93,20 @@ class SanityClient {
   /// Throws a [SanityException] in case  request fails.
   Future<dynamic> fetch(String query, {Map<String, dynamic>? params}) async {
     final Uri uri = _buildUri(query, params: params);
+    Completer<Map<String,dynamic>?> completer = Completer<Map<String,dynamic>?>();
     var fromCache = await HiveDBProvider.get(uri.toString());
     if(fromCache!=null && (fromCache is String && fromCache.isNotEmpty)){
       var decoded = _decodeReponse(fromCache);
       if(decoded!=null){
-        return decoded;
+        completer.complete(decoded);
       }
     }
     final http.Response response = await _client.get(uri);
     if(response.statusCode==200 && response.body.isNotEmpty){
       await HiveDBProvider.create(uri.toString(), response.body);
     }
-    return _returnResponse(response);
+    completer.complete(_returnResponse(response));
+    return completer.future;
   }
 
   String _normalizeFileName(String ref) {
