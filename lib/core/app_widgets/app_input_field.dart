@@ -17,6 +17,7 @@ class AppInputField extends StatelessWidget {
   final bool? obscureText;
   final TextInputType? keyboardType;
   final Function(String) onChanged;
+
   //final Function(String)? onSubmit;
   final Function()? onEditingCompleted;
   final Function(String?)? onSaved;
@@ -29,6 +30,7 @@ class AppInputField extends StatelessWidget {
   final int? minLength;
   final TextInputAction? textInputAction;
   final Color? borderColor;
+  final Widget? actionWidget;
 
   const AppInputField({
     super.key,
@@ -52,7 +54,8 @@ class AppInputField extends StatelessWidget {
     this.onSaved,
     this.minLength,
     this.initialText,
-   // this.onSubmit,
+    this.actionWidget,
+    // this.onSubmit,
   });
 
   @override
@@ -68,15 +71,31 @@ class AppInputField extends StatelessWidget {
               padding: EdgeInsets.only(
                 bottom: 8.h,
               ),
-              child: Text(
-                labelText ?? "",
-                style: GilroyFonts.gilroyMediumStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.20,
-                  color: borderColor,
-                ),
-              ),
+              child: actionWidget != null
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          labelText ?? "",
+                          style: GilroyFonts.gilroyMediumStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.20,
+                            color: borderColor,
+                          ),
+                        ),
+                        actionWidget!,
+                      ],
+                    )
+                  : Text(
+                      labelText ?? "",
+                      style: GilroyFonts.gilroyMediumStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.20,
+                        color: borderColor,
+                      ),
+                    ),
             ),
           Padding(
             padding: EdgeInsets.only(
@@ -84,7 +103,7 @@ class AppInputField extends StatelessWidget {
             ),
             child: TextFormField(
               //onFieldSubmitted: onSubmit,
-              initialValue: controller==null ? initialText : null,
+              initialValue: controller == null ? initialText : null,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               validator: validator,
               maxLines:
@@ -178,7 +197,9 @@ class DropDownInput extends StatelessWidget {
     this.options = const ["B", "AM", "ODO", "HJD"],
     this.onTap,
     this.readOnly,
-    this.validator, this.selected, this.actionWidget,
+    this.validator,
+    this.selected,
+    this.actionWidget,
   });
 
   @override
@@ -193,29 +214,29 @@ class DropDownInput extends StatelessWidget {
             padding: EdgeInsets.only(
               bottom: 8.h,
             ),
-            child: actionWidget==null ?
-            Text(
-              labelText ?? "",
-              style: GilroyFonts.gilroyMediumStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 0.20,
-              ),
-            ):
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  labelText ?? "",
-                  style: GilroyFonts.gilroyMediumStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.20,
+            child: actionWidget == null
+                ? Text(
+                    labelText ?? "",
+                    style: GilroyFonts.gilroyMediumStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 0.20,
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        labelText ?? "",
+                        style: GilroyFonts.gilroyMediumStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.20,
+                        ),
+                      ),
+                      actionWidget!,
+                    ],
                   ),
-                ),
-                actionWidget!,
-              ],
-            ),
           ),
         Padding(
           padding: EdgeInsets.only(
@@ -292,7 +313,8 @@ class DateInputField extends StatefulWidget {
     this.suffixIcon,
     this.onTap,
     this.readOnly,
-    this.validator, this.selectedDate,
+    this.validator,
+    this.selectedDate,
   });
 
   @override
@@ -308,7 +330,7 @@ class _DateInputFieldState extends State<DateInputField> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (widget.controller == null) {
-        if(widget.selectedDate!=null) {
+        if (widget.selectedDate != null) {
           textEditingController.text =
               DateFormat.yMMMMd().format(widget.selectedDate!);
           setState(() {});
@@ -322,7 +344,7 @@ class _DateInputFieldState extends State<DateInputField> {
     // TODO: implement didUpdateWidget
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (widget.controller == null) {
-        if(widget.selectedDate!=null) {
+        if (widget.selectedDate != null) {
           textEditingController.text =
               DateFormat.yMMMMd().format(widget.selectedDate!);
           setState(() {});
@@ -384,7 +406,7 @@ class _DateInputFieldState extends State<DateInputField> {
                   widget.suffixIcon ?? Icons.keyboard_arrow_down,
                 ),
                 contentPadding:
-                     EdgeInsets.symmetric(vertical: 10.h, horizontal: 14.w),
+                    EdgeInsets.symmetric(vertical: 10.h, horizontal: 14.w),
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(width: 1, color: Colors.grey),
                   borderRadius: BorderRadius.circular(8),
