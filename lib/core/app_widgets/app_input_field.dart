@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -75,16 +77,22 @@ class AppInputField extends StatelessWidget {
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          labelText ?? "",
-                          style: GilroyFonts.gilroyMediumStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0.20,
-                            color: borderColor,
+                        Expanded(
+                          child: Text(
+                            labelText ?? "",
+                            style: GilroyFonts.gilroyMediumStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 0.20,
+                              color: borderColor,
+                            ),
                           ),
                         ),
-                        actionWidget!,
+                        SizedBox(
+                            width: 30,
+                            height: 30,
+                            child: actionWidget!,
+                        ),
                       ],
                     )
                   : Text(
@@ -226,15 +234,21 @@ class DropDownInput extends StatelessWidget {
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        labelText ?? "",
-                        style: GilroyFonts.gilroyMediumStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.20,
+                      Expanded(
+                        child: Text(
+                          labelText ?? "",
+                          style: GilroyFonts.gilroyMediumStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 0.20,
+                          ),
                         ),
                       ),
-                      actionWidget!,
+                      SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: actionWidget!,
+                      ),
                     ],
                   ),
           ),
