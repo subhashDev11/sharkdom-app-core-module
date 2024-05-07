@@ -76,6 +76,7 @@ class AppInputField extends StatelessWidget {
               child: actionWidget != null
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
                           child: Text(
@@ -89,9 +90,9 @@ class AppInputField extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                            width: 30,
-                            height: 30,
-                            child: actionWidget!,
+                          width: 30,
+                          height: 30,
+                          child: actionWidget!,
                         ),
                       ],
                     )
@@ -233,6 +234,7 @@ class DropDownInput extends StatelessWidget {
                   )
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Text(
