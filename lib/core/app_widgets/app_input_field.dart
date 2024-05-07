@@ -165,6 +165,7 @@ class DropDownInput extends StatelessWidget {
   final VoidCallback? onTap;
   final bool? readOnly;
   final String? selected;
+  final Widget? actionWidget;
 
   const DropDownInput({
     super.key,
@@ -177,7 +178,7 @@ class DropDownInput extends StatelessWidget {
     this.options = const ["B", "AM", "ODO", "HJD"],
     this.onTap,
     this.readOnly,
-    this.validator, this.selected,
+    this.validator, this.selected, this.actionWidget,
   });
 
   @override
@@ -192,13 +193,28 @@ class DropDownInput extends StatelessWidget {
             padding: EdgeInsets.only(
               bottom: 8.h,
             ),
-            child: Text(
+            child: actionWidget==null ?
+            Text(
               labelText ?? "",
               style: GilroyFonts.gilroyMediumStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.20,
               ),
+            ):
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  labelText ?? "",
+                  style: GilroyFonts.gilroyMediumStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.20,
+                  ),
+                ),
+                actionWidget!,
+              ],
             ),
           ),
         Padding(
