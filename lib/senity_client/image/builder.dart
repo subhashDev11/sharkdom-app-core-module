@@ -3,6 +3,7 @@ import 'package:app_core_module/senity_client/image/url_for_image.dart';
 import 'package:app_core_module/senity_client/senity_client.dart';
 
 import 'model/sanity_image.dart';
+
 /// A Image Url Builder used to configure image transforms from the cdn.
 class ImageUrlBuilder {
   ImageUrlBuilder(this.client, {this.asset, Map<String, dynamic>? params})
