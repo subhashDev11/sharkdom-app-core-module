@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
 import 'package:app_core_module/core/utils/app_logger.dart';
-import 'package:webviewx/webviewx.dart';
 
 class WebScreen extends StatefulWidget {
   final String url;
@@ -35,51 +34,32 @@ class WebScreen extends StatefulWidget {
 
 class _WebScreenState extends State<WebScreen> {
   // final InAppWebViewSettings _options = InAppWebViewSettings(
+  //   // useShouldOverrideUrlLoading: true,
+  //   // mediaPlaybackRequiresUserGesture: false,
   //   javaScriptCanOpenWindowsAutomatically: true,
   //   javaScriptEnabled: true,
+  //   // useOnDownloadStart: true,
+  //   // transparentBackground: true,
+  //   //allowFileAccessFromFileURLs: true,
+  //   // allowUniversalAccessFromFileURLs: true,
   //   cacheEnabled: true,
   //   supportZoom: false,
+  //   // useHybridComposition: true,
+  //   // allowFileAccess: true,
+  //   // allowContentAccess: true,
+  //   // databaseEnabled: true,
   //   domStorageEnabled: true,
+  //   // allowsInlineMediaPlayback: true,
   //   allowsBackForwardNavigationGestures: true,
   //   allowsLinkPreview: true,
   //   sharedCookiesEnabled: true,
-  //   iframeAllow: "camera; microphone",
-  //   iframeAllowFullscreen: true,
   // );
   //
   // InAppWebViewController? webViewController;
 
-  late WebViewXController _webViewController;
-  Size get screenSize => MediaQuery.of(context).size;
-
   @override
   void initState() {
-    _webViewController = WebViewXController(
-        initialContent: widget.url,
-      initialSourceType: SourceType.URL,
-      ignoreAllGestures: false,
-    );
     super.initState();
-  }
-
-  Widget _buildWebViewX() {
-    return WebViewX(
-      key: const ValueKey('webviewx'),
-      onWebViewCreated: (controller) => _webViewController = controller,
-      onPageStarted: (src) =>
-          debugPrint('A new page has started loading: $src\n'),
-      onPageFinished: (src) =>
-          debugPrint('The page has finished loading: $src\n'),
-      dartCallBacks: {
-        DartCallback(
-          name: 'TestDartCallback',
-          callBack: (msg) => showSnackBar(msg.toString(), context),
-        ),
-      },
-      webSpecificParams: const WebSpecificParams(
-        printDebugInfo: true,
-      ),
-    );
   }
 
   @override
@@ -161,46 +141,4 @@ class WebViewStateProvider extends ChangeNotifier {
     _loadingWebView = value;
     notifyListeners();
   }
-}
-
-
-void showAlertDialog(String content, BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (_) => WebViewAware(
-      child: AlertDialog(
-        content: Text(content),
-        actions: [
-          TextButton(
-            onPressed: Navigator.of(context).pop,
-            child: const Text('Close'),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-void showSnackBar(String content, BuildContext context) {
-  ScaffoldMessenger.of(context)
-    ..hideCurrentSnackBar()
-    ..showSnackBar(
-      SnackBar(
-        content: Text(content),
-        duration: const Duration(seconds: 1),
-      ),
-    );
-}
-
-Widget createButton({
-  VoidCallback? onTap,
-  required String text,
-}) {
-  return ElevatedButton(
-    onPressed: onTap,
-    style: ElevatedButton.styleFrom(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-    ),
-    child: Text(text),
-  );
 }
