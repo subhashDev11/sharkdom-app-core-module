@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
 import 'package:app_core_module/core/utils/app_logger.dart';
 
@@ -33,29 +33,29 @@ class WebScreen extends StatefulWidget {
 }
 
 class _WebScreenState extends State<WebScreen> {
-  // final InAppWebViewSettings _options = InAppWebViewSettings(
-  //   // useShouldOverrideUrlLoading: true,
-  //   // mediaPlaybackRequiresUserGesture: false,
-  //   javaScriptCanOpenWindowsAutomatically: true,
-  //   javaScriptEnabled: true,
-  //   // useOnDownloadStart: true,
-  //   // transparentBackground: true,
-  //   //allowFileAccessFromFileURLs: true,
-  //   // allowUniversalAccessFromFileURLs: true,
-  //   cacheEnabled: true,
-  //   supportZoom: false,
-  //   // useHybridComposition: true,
-  //   // allowFileAccess: true,
-  //   // allowContentAccess: true,
-  //   // databaseEnabled: true,
-  //   domStorageEnabled: true,
-  //   // allowsInlineMediaPlayback: true,
-  //   allowsBackForwardNavigationGestures: true,
-  //   allowsLinkPreview: true,
-  //   sharedCookiesEnabled: true,
-  // );
-  //
-  // InAppWebViewController? webViewController;
+  final InAppWebViewSettings _options = InAppWebViewSettings(
+    // useShouldOverrideUrlLoading: true,
+    // mediaPlaybackRequiresUserGesture: false,
+    javaScriptCanOpenWindowsAutomatically: true,
+    javaScriptEnabled: true,
+    // useOnDownloadStart: true,
+    // transparentBackground: true,
+    //allowFileAccessFromFileURLs: true,
+    // allowUniversalAccessFromFileURLs: true,
+    cacheEnabled: true,
+    supportZoom: false,
+    // useHybridComposition: true,
+    // allowFileAccess: true,
+    // allowContentAccess: true,
+    // databaseEnabled: true,
+    domStorageEnabled: true,
+    // allowsInlineMediaPlayback: true,
+    allowsBackForwardNavigationGestures: true,
+    allowsLinkPreview: true,
+    sharedCookiesEnabled: true,
+  );
+
+  InAppWebViewController? webViewController;
 
   @override
   void initState() {
@@ -92,29 +92,29 @@ class _WebScreenState extends State<WebScreen> {
   Widget _getWebBody(WebViewStateProvider state) {
     return Stack(
       children: [
-        // InAppWebView(
-        //   initialUrlRequest: URLRequest(
-        //     url: WebUri(widget.url),
-        //   ),
-        //   initialSettings: _options,
-        //   onWebViewCreated: (controller) async {
-        //     webViewController = controller;
-        //     context.read<WebViewStateProvider>().changeLoadingState(false);
-        //   },
-        //   onReceivedError: (ctr, uri, msg) {
-        //     AppLogger.e("Web load view $uri error - $msg");
-        //   },
-        //   onLoadStart: (controller, url) async {},
-        //   onLoadStop: (controller, url) async {},
-        //   onDownloadStartRequest: (controller, request) async {},
-        //   onLoadResourceWithCustomScheme: (controller, resource) {
-        //     AppLogger.d('loaded resource - ${resource.url}');
-        //     return Future(() => null);
-        //   },
-        //   onConsoleMessage: (_, message) {
-        //     AppLogger.e1('console message - ${message.message}');
-        //   },
-        // ),
+        InAppWebView(
+          initialUrlRequest: URLRequest(
+            url: WebUri(widget.url),
+          ),
+          initialSettings: _options,
+          onWebViewCreated: (controller) async {
+            webViewController = controller;
+            context.read<WebViewStateProvider>().changeLoadingState(false);
+          },
+          onReceivedError: (ctr, uri, msg) {
+            AppLogger.e("Web load view $uri error - $msg");
+          },
+          onLoadStart: (controller, url) async {},
+          onLoadStop: (controller, url) async {},
+          onDownloadStartRequest: (controller, request) async {},
+          onLoadResourceWithCustomScheme: (controller, resource) {
+            AppLogger.d('loaded resource - ${resource.url}');
+            return Future(() => null);
+          },
+          onConsoleMessage: (_, message) {
+            AppLogger.e1('console message - ${message.message}');
+          },
+        ),
         Visibility(
           visible: state.loadingWebView,
           replacement: const SizedBox(),
@@ -127,7 +127,7 @@ class _WebScreenState extends State<WebScreen> {
   @override
   void dispose() {
     // TODO: implement dispose
-    //webViewController?.dispose();
+    webViewController?.dispose();
     super.dispose();
   }
 }
