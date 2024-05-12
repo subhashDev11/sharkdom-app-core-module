@@ -422,6 +422,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "hive_flutter",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/hive_flutter-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/http-1.2.1",
       "packageUri": "lib/",
@@ -992,7 +998,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-04-18T15:56:33.131293Z",
+  "generated": "2024-05-12T03:16:11.945010Z",
   "generator": "pub",
   "generatorVersion": "3.3.3"
 }

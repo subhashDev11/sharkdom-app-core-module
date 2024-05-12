@@ -15,7 +15,7 @@ class ImageUrlBuilder {
 
   ImageUrlBuilder copyWith(
       {SanityImageSource? asset, Map<String, dynamic>? params}) {
-    return ImageUrlBuilder(this.client,
+    return ImageUrlBuilder(client,
         asset: asset ?? this.asset, params: params ?? this.params);
   }
 

@@ -64,7 +64,7 @@ class PickerSourceItem extends StatelessWidget {
             height: 50,
             decoration:  ShapeDecoration(
               color: context.getBrightnessBG,
-              shape: OvalBorder(side: BorderSide(width: 2)),
+              shape: const OvalBorder(side: BorderSide(width: 2)),
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),

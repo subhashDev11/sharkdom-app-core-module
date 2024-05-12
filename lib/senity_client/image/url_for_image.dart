@@ -70,7 +70,7 @@ String specToImageUrl(
     return urlParams.add('$key=$value');
   });
 
-  if (urlParams.length == 0) {
+  if (urlParams.isEmpty) {
     return baseUrl;
   }
 

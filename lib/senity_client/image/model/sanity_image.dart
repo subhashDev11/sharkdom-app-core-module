@@ -150,11 +150,11 @@ class SanityImage extends SanityImageSource {
 
   /// gets the palette of an image.
   SanityPalette? get palette {
-    return this.asset?.palette;
+    return asset?.palette;
   }
 
   /// gets the low quality image preview of an image.
   String? get lqip {
-    return this.asset?.lqip;
+    return asset?.lqip;
   }
 }

@@ -7,7 +7,6 @@ import 'package:path_provider/path_provider.dart' as sys_paths;
 import 'package:path_provider/path_provider.dart';
 import 'package:app_core_module/core/utils/InternetUtils.dart';
 import 'package:app_core_module/core/utils/app_logger.dart';
-import 'package:path/path.dart' as path;
 
 class MinioUploadService {
   final MinioFlutter minio;

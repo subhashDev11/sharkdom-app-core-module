@@ -270,6 +270,10 @@ hive
 2.12
 file:///Users/subhash/.pub-cache/hosted/pub.dev/hive-2.2.3/
 file:///Users/subhash/.pub-cache/hosted/pub.dev/hive-2.2.3/lib/
+hive_flutter
+2.12
+file:///Users/subhash/.pub-cache/hosted/pub.dev/hive_flutter-1.1.0/
+file:///Users/subhash/.pub-cache/hosted/pub.dev/hive_flutter-1.1.0/lib/
 http
 3.3
 file:///Users/subhash/.pub-cache/hosted/pub.dev/http-1.2.1/

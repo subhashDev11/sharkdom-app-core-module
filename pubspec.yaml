@@ -45,6 +45,7 @@ dependencies:
   flutter_inappwebview: ^6.0.0
   hyperkyc_flutter: ^0.20.2
   path: ^1.8.3
+  hive_flutter: ^1.1.0
 
 
 

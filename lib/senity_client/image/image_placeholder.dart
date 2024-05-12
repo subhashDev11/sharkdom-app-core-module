@@ -21,8 +21,8 @@ class ImagePlaceholder extends StatelessWidget {
       return Container();
     }
     return Container(
-      width: this.width,
-      height: this.height,
+      width: width,
+      height: height,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         image: DecorationImage(

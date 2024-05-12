@@ -1,4 +1,3 @@
-import 'package:app_core_module/core/app_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:app_core_module/core/color_constant.dart';
 
