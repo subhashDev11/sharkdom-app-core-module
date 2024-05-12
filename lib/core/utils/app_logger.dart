@@ -25,21 +25,21 @@ class AppLogger {
     String printV = (e is String) ? e : e.toString();
     final stackT = stackTrace is StackTrace ? stackTrace : null;
     if (!kReleaseMode) {
-      appLogger.e('$printV\n ');
+      longPrint('$printV\n ');
     }
   }
 
   static e1(dynamic e) {
     String printV = (e is String) ? e : e.toString();
     if (!kReleaseMode) {
-      appLogger.e('$printV\n');
+      longPrint('$printV\n');
     }
   }
 
   static d(String d, {dynamic stackTrace}) {
     final stackT = stackTrace is StackTrace ? stackTrace : null;
     if (!kReleaseMode) {
-      appLogger.d('$d\n');
+      longPrint('$d\n');
     }
     // if (stackTrace != null) {
     //   FirebaseCrashlytics.instance.recordError(
@@ -52,7 +52,7 @@ class AppLogger {
   static i(dynamic i) {
     if (!kReleaseMode) {
       String printV = (i is String) ? i : i.toString();
-      appLogger.i('$printV\n');
+      longPrint('$printV\n');
     }
   }
 }
