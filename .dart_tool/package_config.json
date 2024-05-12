@@ -248,12 +248,6 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "fixnum",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/fixnum-1.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
-    },
-    {
       "name": "flutter",
       "rootUri": "file:///Users/subhash/Documents/flutter%20sdk/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -270,48 +264,6 @@
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_easyloading-3.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "flutter_inappwebview",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview-6.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_inappwebview_android",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_android-1.0.13",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_inappwebview_internal_annotations",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_internal_annotations-1.1.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.15"
-    },
-    {
-      "name": "flutter_inappwebview_ios",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_ios-1.0.13",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_inappwebview_macos",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_macos-1.0.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_inappwebview_platform_interface",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_platform_interface-1.0.10",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "flutter_inappwebview_web",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/flutter_inappwebview_web-1.0.8",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
     },
     {
       "name": "flutter_lints",
@@ -680,6 +632,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "pedantic",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/pedantic-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/petitparser-6.0.2",
       "packageUri": "lib/",
@@ -702,6 +660,12 @@
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "pointer_interceptor",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/pointer_interceptor-0.9.3+7",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
     },
     {
       "name": "pool",
@@ -836,12 +800,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "sprintf",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/sprintf-7.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "sqflite",
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/sqflite-2.3.2",
       "packageUri": "lib/",
@@ -909,9 +867,9 @@
     },
     {
       "name": "uuid",
-      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/uuid-4.3.3",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/uuid-3.0.7",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "2.12"
     },
     {
       "name": "vector_graphics",
@@ -968,6 +926,36 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/webview_flutter-2.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/webview_flutter_android-2.10.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-1.9.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-2.9.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "webviewx",
+      "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/webviewx-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "win32",
       "rootUri": "file:///Users/subhash/.pub-cache/hosted/pub.dev/win32-5.2.0",
       "packageUri": "lib/",
@@ -998,7 +986,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-05-12T03:16:11.945010Z",
+  "generated": "2024-05-12T03:42:18.750313Z",
   "generator": "pub",
   "generatorVersion": "3.3.3"
 }

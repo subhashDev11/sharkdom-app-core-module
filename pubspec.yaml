@@ -42,10 +42,11 @@ dependencies:
   cached_network_image: ^3.3.1
   dropdown_search: ^5.0.6
   photo_view: ^0.14.0
-  flutter_inappwebview: ^6.0.0
   hyperkyc_flutter: ^0.20.2
   path: ^1.8.3
   hive_flutter: ^1.1.0
+  webviewx: ^0.1.0
+
 
 
 
