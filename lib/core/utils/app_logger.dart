@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 class AppLogger {
   static final Logger appLogger = Logger();
   static longPrint(String text) {
-    if (kDebugMode) {
+    if (!kReleaseMode) {
       if (Platform.isAndroid) {
         log(
           '\x1B$text\n\n',
@@ -24,21 +24,21 @@ class AppLogger {
   static e(dynamic e, {dynamic stackTrace, String? reason}) async {
     String printV = (e is String) ? e : e.toString();
     final stackT = stackTrace is StackTrace ? stackTrace : null;
-    if (kDebugMode) {
+    if (!kReleaseMode) {
       appLogger.e('$printV\n ');
     }
   }
 
   static e1(dynamic e) {
     String printV = (e is String) ? e : e.toString();
-    if (kDebugMode) {
+    if (!kReleaseMode) {
       appLogger.e('$printV\n');
     }
   }
 
   static d(String d, {dynamic stackTrace}) {
     final stackT = stackTrace is StackTrace ? stackTrace : null;
-    if (kDebugMode) {
+    if (!kReleaseMode) {
       appLogger.d('$d\n');
     }
     // if (stackTrace != null) {
@@ -50,7 +50,7 @@ class AppLogger {
   }
 
   static i(dynamic i) {
-    if (kDebugMode) {
+    if (!kReleaseMode) {
       String printV = (i is String) ? i : i.toString();
       appLogger.i('$printV\n');
     }
