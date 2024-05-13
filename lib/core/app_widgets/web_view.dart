@@ -94,16 +94,18 @@ class _WebScreenState extends State<WebScreen> {
       children: [
         InAppWebView(
           headlessWebView: HeadlessInAppWebView.fromPlatformCreationParams(
-              params: const PlatformHeadlessInAppWebViewCreationParams(
-              )),
+              params: const PlatformHeadlessInAppWebViewCreationParams()),
           initialUrlRequest: URLRequest(
             url: WebUri(widget.url),
           ),
           initialSettings: _options,
           onWebViewCreated: (controller) async {
             webViewController = controller;
-            hideHeaderWithCSS();
             context.read<WebViewStateProvider>().changeLoadingState(false);
+            webViewController
+                ?.evaluateJavascript(source: "javascript:(function() { var head = document.getElementsByTagName('header')[0];head.parentNode.removeChild(head);var footer = document.getElementsByTagName('footer')[0];footer.parentNode.removeChild(footer);})()")
+                .then((value) => debugPrint('Page finished loading Javascript'))
+                .catchError((onError) => debugPrint('$onError'));
           },
           onReceivedError: (ctr, uri, msg) {
             AppLogger.e("Web load view $uri error - $msg");
@@ -130,11 +132,10 @@ class _WebScreenState extends State<WebScreen> {
 
   void hideHeaderWithCSS() async {
     if (webViewController != null) {
-      await webViewController!.injectCSSCode(
-          source: "header { display: none !important; }");
+      await webViewController!
+          .injectCSSCode(source: "header { display: none !important; }");
     }
   }
-
 
   @override
   void dispose() {
