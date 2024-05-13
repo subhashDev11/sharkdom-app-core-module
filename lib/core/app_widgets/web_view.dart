@@ -93,12 +93,16 @@ class _WebScreenState extends State<WebScreen> {
     return Stack(
       children: [
         InAppWebView(
+          headlessWebView: HeadlessInAppWebView.fromPlatformCreationParams(
+              params: const PlatformHeadlessInAppWebViewCreationParams(
+              )),
           initialUrlRequest: URLRequest(
             url: WebUri(widget.url),
           ),
           initialSettings: _options,
           onWebViewCreated: (controller) async {
             webViewController = controller;
+            hideHeaderWithCSS();
             context.read<WebViewStateProvider>().changeLoadingState(false);
           },
           onReceivedError: (ctr, uri, msg) {
@@ -123,6 +127,14 @@ class _WebScreenState extends State<WebScreen> {
       ],
     );
   }
+
+  void hideHeaderWithCSS() async {
+    if (webViewController != null) {
+      await webViewController!.injectCSSCode(
+          source: "header { display: none !important; }");
+    }
+  }
+
 
   @override
   void dispose() {
