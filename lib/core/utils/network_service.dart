@@ -32,7 +32,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $authToken';
+      //headers['Authorization'] = 'Bearer $authToken';
       http.Response response = await http.get(
         Uri.parse(url),
         headers: headers,
@@ -80,7 +80,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $token';
+      //headers['Authorization'] = 'Bearer $token';
 
       http.Response response = await http.post(
         Uri.parse(url),
@@ -115,7 +115,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $token';
+      //headers['Authorization'] = 'Bearer $token';
 
       http.Response response = await http.put(
         Uri.parse(url),
@@ -147,7 +147,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $token';
+      //headers['Authorization'] = 'Bearer $token';
 
       http.Response response = await http.patch(
         Uri.parse(url),
@@ -178,7 +178,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $token';
+      //headers['Authorization'] = 'Bearer $token';
 
       http.Response response = await http.delete(
         Uri.parse(url),
@@ -211,7 +211,7 @@ class NetworkService {
       //headers['Accept'] = "application/json";
       //headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      headers['Authorization'] = 'Bearer $token';
+      //headers['Authorization'] = 'Bearer $token';
 
       var request = http.MultipartRequest(
         'POST',
