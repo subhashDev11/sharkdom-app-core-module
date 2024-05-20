@@ -32,7 +32,7 @@ class NetworkService {
       headers['Accept'] = "application/json";
       headers['Content-Type'] = "application/json";
       headers['Connection'] = "keep-alive";
-      //headers['Authorization'] = 'Bearer $authToken';
+      headers['Authorization'] = 'Bearer $authToken';
       http.Response response = await http.get(
         Uri.parse(url),
         headers: headers,
