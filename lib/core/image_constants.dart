@@ -23,4 +23,5 @@ class ImageConstants {
   static const String webIcon = "assets/icons/svg/web-icon.svg";
   static const String placeholder = "assets/images/placeholder.png";
   static const String lockedOrg = "assets/images/locked_org.png";
+  static String get verifyEmailIcon => "assets/icons/png/verify_email_icon.png";
 }
