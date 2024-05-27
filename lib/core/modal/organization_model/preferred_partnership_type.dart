@@ -1,20 +1,20 @@
 import 'package:equatable/equatable.dart';
 
-class PreferredSector extends Equatable {
+class PreferredPartnershipType extends Equatable {
   final int? id;
   final DateTime? creationTimestamp;
   final DateTime? lastUpdatedTimestamp;
   final String? area;
 
-  const PreferredSector({
+  const PreferredPartnershipType({
     this.id,
     this.creationTimestamp,
     this.lastUpdatedTimestamp,
     this.area,
   });
 
-  factory PreferredSector.fromJson(Map<String, dynamic> json) {
-    return PreferredSector(
+  factory PreferredPartnershipType.fromJson(Map<String, dynamic> json) {
+    return PreferredPartnershipType(
       id: json['id'] as int?,
       creationTimestamp: json['creationTimestamp'] == null
           ? null
@@ -33,13 +33,13 @@ class PreferredSector extends Equatable {
         'area': area,
       };
 
-  PreferredSector copyWith({
+  PreferredPartnershipType copyWith({
     int? id,
     DateTime? creationTimestamp,
     DateTime? lastUpdatedTimestamp,
     String? area,
   }) {
-    return PreferredSector(
+    return PreferredPartnershipType(
       id: id ?? this.id,
       creationTimestamp: creationTimestamp ?? this.creationTimestamp,
       lastUpdatedTimestamp: lastUpdatedTimestamp ?? this.lastUpdatedTimestamp,

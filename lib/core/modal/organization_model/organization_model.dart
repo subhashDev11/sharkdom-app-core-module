@@ -1,8 +1,10 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
+import 'credits.dart';
+import 'organization_collaboration.dart';
+import 'preferred_partnership_type.dart';
 import 'preferred_sector.dart';
+import 'schedule.dart';
 import 'service.dart';
 import 'signatory.dart';
 import 'social_media.dart';
@@ -21,6 +23,8 @@ class OrganizationModel extends Equatable {
   final String? registrationType;
   final String? sector;
   final String? stage;
+  final String? dateOfIncorporation;
+  final String? verificationApplicationStatus;
   final String? city;
   final String? state;
   final String? additionalDetails;
@@ -40,16 +44,26 @@ class OrganizationModel extends Equatable {
   final String? contactNumber;
   final String? targetMarket;
   final String? funding;
-  final List<dynamic>? preferredPartnershipTypes;
+  final List<PreferredPartnershipType>? preferredPartnershipTypes;
   final String? partnershipRestrictions;
   final String? cin;
   final DateTime? lastActivityAtTimestamp;
   final String? verificationResponse;
   final String? source;
   final DateTime? incorporationDate;
-  final bool? openForPartnership;
   final List<PreferredSector>? preferredSectors;
   final List<Signatory>? signatories;
+  final bool? openForPartnership;
+  final Credits? credits;
+  final List<Schedule>? schedules;
+  final bool? referralProgram;
+  final bool? brandResources;
+  final String? documentPath;
+  final List<OrganizationCollaboration>? organizationCollaborations;
+  final int? acknowledgmentTime;
+  final String? referralCode;
+  final String? planCode;
+  final bool? subscribed;
 
   const OrganizationModel({
     this.id,
@@ -65,6 +79,8 @@ class OrganizationModel extends Equatable {
     this.registrationType,
     this.sector,
     this.stage,
+    this.dateOfIncorporation,
+    this.verificationApplicationStatus,
     this.city,
     this.state,
     this.additionalDetails,
@@ -91,83 +107,121 @@ class OrganizationModel extends Equatable {
     this.verificationResponse,
     this.source,
     this.incorporationDate,
-    this.openForPartnership,
     this.preferredSectors,
     this.signatories,
+    this.openForPartnership,
+    this.credits,
+    this.schedules,
+    this.referralProgram,
+    this.brandResources,
+    this.documentPath,
+    this.organizationCollaborations,
+    this.acknowledgmentTime,
+    this.referralCode,
+    this.planCode,
+    this.subscribed,
   });
 
-  factory OrganizationModel.fromMap(Map<String, dynamic> data) {
+  factory OrganizationModel.fromJson(Map<String, dynamic> json) {
     return OrganizationModel(
-      id: data['id'] as int?,
-      creationTimestamp: data['creationTimestamp'] == null
+      id: json['id'] as int?,
+      creationTimestamp: json['creationTimestamp'] == null
           ? null
-          : DateTime.parse(data['creationTimestamp'] as String),
-      lastUpdatedTimestamp: data['lastUpdatedTimestamp'] == null
+          : DateTime.parse(json['creationTimestamp'] as String),
+      lastUpdatedTimestamp: json['lastUpdatedTimestamp'] == null
           ? null
-          : DateTime.parse(data['lastUpdatedTimestamp'] as String),
-      services: (data['services'] as List<dynamic>?)
-          ?.map((e) => Service.fromMap(e as Map<String, dynamic>))
+          : DateTime.parse(json['lastUpdatedTimestamp'] as String),
+      services: (json['services'] as List<dynamic>?)
+          ?.map((e) => Service.fromJson(e as Map<String, dynamic>))
           .toList(),
-      socialMedias: (data['socialMedias'] as List<dynamic>?)
-          ?.map((e) => SocialMedia.fromMap(e as Map<String, dynamic>))
+      socialMedias: (json['socialMedias'] as List<dynamic>?)
+          ?.map((e) => SocialMedia.fromJson(e as Map<String, dynamic>))
           .toList(),
-      code: data['code'] as String?,
-      name: data['name'] as String?,
-      about: data['about'] as String?,
-      briefDescription: data['briefDescription'] as String?,
-      inceptionYear: data['inceptionYear'] as int?,
-      registrationType: data['registrationType'] as String?,
-      sector: data['sector'] as String?,
-      stage: data['stage'] as String?,
-      city: data['city'] as String?,
-      state: data['state'] as String?,
-      additionalDetails: data['additionalDetails'] as String?,
-      primaryEmail: data['primaryEmail'] as String?,
-      primaryEmailVerified: data['primaryEmailVerified'] as String?,
-      domain: data['domain'] as String?,
-      domainVerified: data['domainVerified'] as String?,
-      website: data['website'] as String?,
-      status: data['status'] as String?,
-      verified: data['verified'] as bool?,
-      verifiedBy: data['verifiedBy'] as String?,
-      verifiedOn: data['verifiedOn'] == null
+      code: json['code'] as String?,
+      name: json['name'] as String?,
+      about: json['about'] as String?,
+      briefDescription: json['briefDescription'] as String?,
+      inceptionYear: json['inceptionYear'] as int?,
+      registrationType: json['registrationType'] as String?,
+      sector: json['sector'] as String?,
+      stage: json['stage'] as String?,
+      dateOfIncorporation: json['dateOfIncorporation'] as String?,
+      verificationApplicationStatus:
+          json['verificationApplicationStatus'] as String?,
+      city: json['city'] as String?,
+      state: json['state'] as String?,
+      additionalDetails: json['additionalDetails'] as String?,
+      primaryEmail: json['primaryEmail'] as String?,
+      primaryEmailVerified: json['primaryEmailVerified'] as String?,
+      domain: json['domain'] as String?,
+      domainVerified: json['domainVerified'] as String?,
+      website: json['website'] as String?,
+      status: json['status'] as String?,
+      verified: json['verified'] as bool?,
+      verifiedBy: json['verifiedBy'] as String?,
+      verifiedOn: json['verifiedOn'] == null
           ? null
-          : DateTime.parse(data['verifiedOn'] as String),
-      address: data['address'] as String?,
-      trialPeriodProcured: data['trialPeriodProcured'] as bool?,
-      companyType: data['companyType'] as String?,
-      legalName: data['legalName'] as String?,
-      contactNumber: data['contactNumber'] as String?,
-      targetMarket: data['targetMarket'] as String?,
-      funding: data['funding'] as String?,
+          : DateTime.parse(json['verifiedOn'] as String),
+      address: json['address'] as String?,
+      trialPeriodProcured: json['trialPeriodProcured'] as bool?,
+      companyType: json['companyType'] as String?,
+      legalName: json['legalName'] as String?,
+      contactNumber: json['contactNumber'] as String?,
+      targetMarket: json['targetMarket'] as String?,
+      funding: json['funding'] as String?,
       preferredPartnershipTypes:
-          data['preferredPartnershipTypes'] as List<dynamic>?,
-      partnershipRestrictions: data['partnershipRestrictions'] as String?,
-      cin: data['cin'] as String?,
-      lastActivityAtTimestamp: data['lastActivityAtTimestamp'] == null
+          (json['preferredPartnershipTypes'] as List<dynamic>?)
+              ?.map((e) =>
+                  PreferredPartnershipType.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      partnershipRestrictions: json['partnershipRestrictions'] as String?,
+      cin: json['cin'] as String?,
+      lastActivityAtTimestamp: json['lastActivityAtTimestamp'] == null
           ? null
-          : DateTime.parse(data['lastActivityAtTimestamp'] as String),
-      verificationResponse: data['verificationResponse'] as String?,
-      source: data['source'] as String?,
-      incorporationDate: data['incorporationDate'] == null
+          : DateTime.parse(json['lastActivityAtTimestamp'] as String),
+      verificationResponse: json['verificationResponse'] as String?,
+      source: json['source'] as String?,
+      incorporationDate: json['incorporationDate'] == null
           ? null
-          : DateTime.parse(data['incorporationDate'] as String),
-      openForPartnership: data['openForPartnership'] as bool?,
-      preferredSectors: (data['preferredSectors'] as List<dynamic>?)
-          ?.map((e) => PreferredSector.fromMap(e as Map<String, dynamic>))
+          : DateTime.parse(json['incorporationDate'] as String),
+      preferredSectors: (json['preferredSectors'] as List<dynamic>?)
+          ?.map((e) => PreferredSector.fromJson(e as Map<String, dynamic>))
           .toList(),
-      signatories: (data['signatories'] as List<dynamic>?)
-          ?.map((e) => Signatory.fromMap(e as Map<String, dynamic>))
+      signatories: (json['signatories'] as List<dynamic>?)
+          ?.map((e) => Signatory.fromJson(e as Map<String, dynamic>))
           .toList(),
+      openForPartnership: json['openForPartnership'] as bool?,
+      credits: json['credits'] == null
+          ? null
+          : Credits.fromJson(json['credits'] as Map<String, dynamic>),
+      schedules: (json['schedules'] as List<dynamic>?)
+          ?.map((e) => Schedule.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      referralProgram: json['referralProgram'] as bool?,
+      brandResources: json['brandResources'] as bool?,
+      documentPath: json['documentPath'] as String?,
+      organizationCollaborations:
+          (json['organizationCollaborations'] as List<dynamic>?)
+              ?.map((e) =>
+                  OrganizationCollaboration.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      acknowledgmentTime: json['acknowledgmentTime'] as int?,
+      referralCode: json['referralCode'] as String?,
+      planCode: json['planCode'] as String?,
+      subscribed: json['subscribed'] as bool?,
     );
   }
 
-  Map<String, dynamic> toMap() => {
+  String getOrgFileLogoName() {
+    return "${name}_$id";
+  }
+
+  Map<String, dynamic> toJson() => {
         'id': id,
         'creationTimestamp': creationTimestamp?.toIso8601String(),
         'lastUpdatedTimestamp': lastUpdatedTimestamp?.toIso8601String(),
-        'services': services?.map((e) => e.toMap()).toList(),
-        'socialMedias': socialMedias?.map((e) => e.toMap()).toList(),
+        'services': services?.map((e) => e.toJson()).toList(),
+        'socialMedias': socialMedias?.map((e) => e.toJson()).toList(),
         'code': code,
         'name': name,
         'about': about,
@@ -176,6 +230,8 @@ class OrganizationModel extends Equatable {
         'registrationType': registrationType,
         'sector': sector,
         'stage': stage,
+        'dateOfIncorporation': dateOfIncorporation,
+        'verificationApplicationStatus': verificationApplicationStatus,
         'city': city,
         'state': state,
         'additionalDetails': additionalDetails,
@@ -195,33 +251,29 @@ class OrganizationModel extends Equatable {
         'contactNumber': contactNumber,
         'targetMarket': targetMarket,
         'funding': funding,
-        'preferredPartnershipTypes': preferredPartnershipTypes,
+        'preferredPartnershipTypes':
+            preferredPartnershipTypes?.map((e) => e.toJson()).toList(),
         'partnershipRestrictions': partnershipRestrictions,
         'cin': cin,
         'lastActivityAtTimestamp': lastActivityAtTimestamp?.toIso8601String(),
         'verificationResponse': verificationResponse,
         'source': source,
         'incorporationDate': incorporationDate?.toIso8601String(),
+        'preferredSectors': preferredSectors?.map((e) => e.toJson()).toList(),
+        'signatories': signatories?.map((e) => e.toJson()).toList(),
         'openForPartnership': openForPartnership,
-        'preferredSectors': preferredSectors?.map((e) => e.toMap()).toList(),
-        'signatories': signatories?.map((e) => e.toMap()).toList(),
+        'credits': credits?.toJson(),
+        'schedules': schedules?.map((e) => e.toJson()).toList(),
+        'referralProgram': referralProgram,
+        'brandResources': brandResources,
+        'documentPath': documentPath,
+        'organizationCollaborations':
+            organizationCollaborations?.map((e) => e.toJson()).toList(),
+        'acknowledgmentTime': acknowledgmentTime,
+        'referralCode': referralCode,
+        'planCode': planCode,
+        'subscribed': subscribed,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [OrganizationModel].
-  factory OrganizationModel.fromJson(String data) {
-    return OrganizationModel.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [OrganizationModel] to a JSON string.
-  String toJson() => json.encode(toMap());
-
-   String getOrgFileLogoName() {
-    return "${name}_$id";
-  }
 
   OrganizationModel copyWith({
     int? id,
@@ -237,6 +289,8 @@ class OrganizationModel extends Equatable {
     String? registrationType,
     String? sector,
     String? stage,
+    String? dateOfIncorporation,
+    String? verificationApplicationStatus,
     String? city,
     String? state,
     String? additionalDetails,
@@ -256,16 +310,26 @@ class OrganizationModel extends Equatable {
     String? contactNumber,
     String? targetMarket,
     String? funding,
-    List<dynamic>? preferredPartnershipTypes,
+    List<PreferredPartnershipType>? preferredPartnershipTypes,
     String? partnershipRestrictions,
     String? cin,
     DateTime? lastActivityAtTimestamp,
     String? verificationResponse,
     String? source,
     DateTime? incorporationDate,
-    bool? openForPartnership,
     List<PreferredSector>? preferredSectors,
     List<Signatory>? signatories,
+    bool? openForPartnership,
+    Credits? credits,
+    List<Schedule>? schedules,
+    bool? referralProgram,
+    bool? brandResources,
+    String? documentPath,
+    List<OrganizationCollaboration>? organizationCollaborations,
+    int? acknowledgmentTime,
+    String? referralCode,
+    String? planCode,
+    bool? subscribed,
   }) {
     return OrganizationModel(
       id: id ?? this.id,
@@ -281,6 +345,9 @@ class OrganizationModel extends Equatable {
       registrationType: registrationType ?? this.registrationType,
       sector: sector ?? this.sector,
       stage: stage ?? this.stage,
+      dateOfIncorporation: dateOfIncorporation ?? this.dateOfIncorporation,
+      verificationApplicationStatus:
+          verificationApplicationStatus ?? this.verificationApplicationStatus,
       city: city ?? this.city,
       state: state ?? this.state,
       additionalDetails: additionalDetails ?? this.additionalDetails,
@@ -310,9 +377,20 @@ class OrganizationModel extends Equatable {
       verificationResponse: verificationResponse ?? this.verificationResponse,
       source: source ?? this.source,
       incorporationDate: incorporationDate ?? this.incorporationDate,
-      openForPartnership: openForPartnership ?? this.openForPartnership,
       preferredSectors: preferredSectors ?? this.preferredSectors,
       signatories: signatories ?? this.signatories,
+      openForPartnership: openForPartnership ?? this.openForPartnership,
+      credits: credits ?? this.credits,
+      schedules: schedules ?? this.schedules,
+      referralProgram: referralProgram ?? this.referralProgram,
+      brandResources: brandResources ?? this.brandResources,
+      documentPath: documentPath ?? this.documentPath,
+      organizationCollaborations:
+          organizationCollaborations ?? this.organizationCollaborations,
+      acknowledgmentTime: acknowledgmentTime ?? this.acknowledgmentTime,
+      referralCode: referralCode ?? this.referralCode,
+      planCode: planCode ?? this.planCode,
+      subscribed: subscribed ?? this.subscribed,
     );
   }
 
@@ -332,6 +410,8 @@ class OrganizationModel extends Equatable {
       registrationType,
       sector,
       stage,
+      dateOfIncorporation,
+      verificationApplicationStatus,
       city,
       state,
       additionalDetails,
@@ -358,9 +438,19 @@ class OrganizationModel extends Equatable {
       verificationResponse,
       source,
       incorporationDate,
-      openForPartnership,
       preferredSectors,
       signatories,
+      openForPartnership,
+      credits,
+      schedules,
+      referralProgram,
+      brandResources,
+      documentPath,
+      organizationCollaborations,
+      acknowledgmentTime,
+      referralCode,
+      planCode,
+      subscribed,
     ];
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
 class Service extends Equatable {
@@ -15,35 +13,23 @@ class Service extends Equatable {
     this.service,
   });
 
-  factory Service.fromMap(Map<String, dynamic> data) => Service(
-        id: data['id'] as int?,
-        creationTimestamp: data['creationTimestamp'] == null
+  factory Service.fromJson(Map<String, dynamic> json) => Service(
+        id: json['id'] as int?,
+        creationTimestamp: json['creationTimestamp'] == null
             ? null
-            : DateTime.parse(data['creationTimestamp'] as String),
-        lastUpdatedTimestamp: data['lastUpdatedTimestamp'] == null
+            : DateTime.parse(json['creationTimestamp'] as String),
+        lastUpdatedTimestamp: json['lastUpdatedTimestamp'] == null
             ? null
-            : DateTime.parse(data['lastUpdatedTimestamp'] as String),
-        service: data['service'] as String?,
+            : DateTime.parse(json['lastUpdatedTimestamp'] as String),
+        service: json['service'] as String?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'id': id,
         'creationTimestamp': creationTimestamp?.toIso8601String(),
         'lastUpdatedTimestamp': lastUpdatedTimestamp?.toIso8601String(),
         'service': service,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Service].
-  factory Service.fromJson(String data) {
-    return Service.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Service] to a JSON string.
-  String toJson() => json.encode(toMap());
 
   Service copyWith({
     int? id,

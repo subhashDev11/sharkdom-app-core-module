@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
 class Signatory extends Equatable {
@@ -25,23 +23,23 @@ class Signatory extends Equatable {
     this.beginDate,
   });
 
-  factory Signatory.fromMap(Map<String, dynamic> data) => Signatory(
-        id: data['id'] as int?,
-        creationTimestamp: data['creationTimestamp'] == null
+  factory Signatory.fromJson(Map<String, dynamic> json) => Signatory(
+        id: json['id'] as int?,
+        creationTimestamp: json['creationTimestamp'] == null
             ? null
-            : DateTime.parse(data['creationTimestamp'] as String),
-        lastUpdatedTimestamp: data['lastUpdatedTimestamp'] == null
+            : DateTime.parse(json['creationTimestamp'] as String),
+        lastUpdatedTimestamp: json['lastUpdatedTimestamp'] == null
             ? null
-            : DateTime.parse(data['lastUpdatedTimestamp'] as String),
-        name: data['name'] as String?,
-        signatory: data['signatory'] as String?,
-        endDate: data['endDate'] as String?,
-        surrenderedDin: data['surrenderedDin'] as String?,
-        dinOrPanNumber: data['dinOrPanNumber'] as String?,
-        beginDate: data['beginDate'] as String?,
+            : DateTime.parse(json['lastUpdatedTimestamp'] as String),
+        name: json['name'] as String?,
+        signatory: json['signatory'] as String?,
+        endDate: json['endDate'] as String?,
+        surrenderedDin: json['surrenderedDin'] as String?,
+        dinOrPanNumber: json['dinOrPanNumber'] as String?,
+        beginDate: json['beginDate'] as String?,
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         'id': id,
         'creationTimestamp': creationTimestamp?.toIso8601String(),
         'lastUpdatedTimestamp': lastUpdatedTimestamp?.toIso8601String(),
@@ -52,18 +50,6 @@ class Signatory extends Equatable {
         'dinOrPanNumber': dinOrPanNumber,
         'beginDate': beginDate,
       };
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Signatory].
-  factory Signatory.fromJson(String data) {
-    return Signatory.fromMap(json.decode(data) as Map<String, dynamic>);
-  }
-
-  /// `dart:convert`
-  ///
-  /// Converts [Signatory] to a JSON string.
-  String toJson() => json.encode(toMap());
 
   Signatory copyWith({
     int? id,

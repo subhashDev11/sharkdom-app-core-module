@@ -1,23 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-class SocialMedia extends Equatable {
+class Credits extends Equatable {
   final int? id;
   final DateTime? creationTimestamp;
   final DateTime? lastUpdatedTimestamp;
-  final String? name;
-  final String? url;
-  final bool? showOnUi;
+  final int? playgroundCredits;
+  final int? aiProposalCredits;
 
-  const SocialMedia({
+  const Credits({
     this.id,
     this.creationTimestamp,
     this.lastUpdatedTimestamp,
-    this.name,
-    this.url,
-    this.showOnUi,
+    this.playgroundCredits,
+    this.aiProposalCredits,
   });
 
-  factory SocialMedia.fromJson(Map<String, dynamic> json) => SocialMedia(
+  factory Credits.fromJson(Map<String, dynamic> json) => Credits(
         id: json['id'] as int?,
         creationTimestamp: json['creationTimestamp'] == null
             ? null
@@ -25,35 +23,31 @@ class SocialMedia extends Equatable {
         lastUpdatedTimestamp: json['lastUpdatedTimestamp'] == null
             ? null
             : DateTime.parse(json['lastUpdatedTimestamp'] as String),
-        name: json['name'] as String?,
-        url: json['url'] as String?,
-        showOnUi: json['showOnUi'] as bool?,
+        playgroundCredits: json['playgroundCredits'] as int?,
+        aiProposalCredits: json['aiProposalCredits'] as int?,
       );
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'creationTimestamp': creationTimestamp?.toIso8601String(),
         'lastUpdatedTimestamp': lastUpdatedTimestamp?.toIso8601String(),
-        'name': name,
-        'url': url,
-        'showOnUi': showOnUi,
+        'playgroundCredits': playgroundCredits,
+        'aiProposalCredits': aiProposalCredits,
       };
 
-  SocialMedia copyWith({
+  Credits copyWith({
     int? id,
     DateTime? creationTimestamp,
     DateTime? lastUpdatedTimestamp,
-    String? name,
-    String? url,
-    bool? showOnUi,
+    int? playgroundCredits,
+    int? aiProposalCredits,
   }) {
-    return SocialMedia(
+    return Credits(
       id: id ?? this.id,
       creationTimestamp: creationTimestamp ?? this.creationTimestamp,
       lastUpdatedTimestamp: lastUpdatedTimestamp ?? this.lastUpdatedTimestamp,
-      name: name ?? this.name,
-      url: url ?? this.url,
-      showOnUi: showOnUi ?? this.showOnUi,
+      playgroundCredits: playgroundCredits ?? this.playgroundCredits,
+      aiProposalCredits: aiProposalCredits ?? this.aiProposalCredits,
     );
   }
 
@@ -63,9 +57,8 @@ class SocialMedia extends Equatable {
       id,
       creationTimestamp,
       lastUpdatedTimestamp,
-      name,
-      url,
-      showOnUi,
+      playgroundCredits,
+      aiProposalCredits,
     ];
   }
 }
