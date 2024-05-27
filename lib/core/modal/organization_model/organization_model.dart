@@ -122,7 +122,7 @@ class OrganizationModel extends Equatable {
     this.subscribed,
   });
 
-  factory OrganizationModel.fromJson(Map<String, dynamic> json) {
+  factory OrganizationModel.fromMap(Map<String, dynamic> json) {
     return OrganizationModel(
       id: json['id'] as int?,
       creationTimestamp: json['creationTimestamp'] == null
@@ -216,7 +216,7 @@ class OrganizationModel extends Equatable {
     return "${name}_$id";
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'creationTimestamp': creationTimestamp?.toIso8601String(),
         'lastUpdatedTimestamp': lastUpdatedTimestamp?.toIso8601String(),
