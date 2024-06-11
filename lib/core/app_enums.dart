@@ -1,4 +1,0 @@
-enum ValidationBy {
-  governmentId,
-  uploadDoc,
-}
