@@ -29,21 +29,6 @@ class AppLayout extends StatelessWidget {
             top: 50.h,
             child: child,
           ),
-          if (showAppLogo ?? true)
-            Positioned(
-              bottom: context.screenSize.height * 0.22.h,
-              right: 8.w,
-              child: IgnorePointer(
-                ignoring: true,
-                child: SizedBox(
-                  height: context.screenSize.height * 0.8.h,
-                  width: context.screenSize.width * 0.75.w,
-                  child: Image.asset(
-                    ImageConstants.bgLogo,
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );

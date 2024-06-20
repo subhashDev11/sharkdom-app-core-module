@@ -22,21 +22,6 @@ class DashboardLayout extends StatelessWidget {
             top: 50,
             child: child,
           ),
-          if (showAppLogo ?? true)
-            Positioned(
-              bottom: context.screenSize.height * 0.22,
-              right: 8,
-              child: IgnorePointer(
-                ignoring: true,
-                child: SizedBox(
-                  height: context.screenSize.height * 0.8,
-                  width: context.screenSize.width * 0.75,
-                  child: Image.asset(
-                    ImageConstants.bgLogo,
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );

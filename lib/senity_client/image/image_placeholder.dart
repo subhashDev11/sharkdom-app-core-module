@@ -23,13 +23,6 @@ class ImagePlaceholder extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: imageFromBase64String(lqip!).image,
-          fit: BoxFit.fill,
-        ),
-      ),
     );
   }
 }
